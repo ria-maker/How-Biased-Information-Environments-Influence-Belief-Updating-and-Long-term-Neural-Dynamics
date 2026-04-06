@@ -46,14 +46,15 @@ This pipeline is designed to analyze empirical EEG data obtained from the OpenNe
 To run the preprocessing script (1_EEG_Processing.m), you must first download the raw .vhdr/.eeg files from OpenNeuro and update the data_root directory path within the script.
 
 # System Requirements
-MATLAB (R2021a or newer recommended)
-EEGLAB (v2021.1 or newer)
-MATLAB Optimization Toolbox (Required for fmincon in Script 2)
-MATLAB Statistics and Machine Learning Toolbox
+* MATLAB (R2021a or newer recommended)
+* EEGLAB (v2021.1 or newer)
+* MATLAB Optimization Toolbox (Required for fmincon in Script 2)
+* MATLAB Statistics and Machine Learning Toolbox
 
 # Usage Instructions
 To replicate the findings or utilize the modeling framework, scripts must be executed sequentially:
-Ensure EEGLAB is added to your MATLAB path.
-Run 1_EEG_Processing.m to generate the .mat feature tables from the raw dataset.
-Run 2_Model_Construction.m to calculate the optimized population-level parameters.
-Run 3_LongTerm_Forecast_Adult.m and 4_LongTerm_Sensitivity_Child.m independently to view the respective longitudinal simulations and generate network visualizations.
+
+* Ensure EEGLAB is added to your MATLAB path.
+* Run 1_EEG_Processing.m to generate the .mat feature tables from the raw dataset.
+* Run 2_Model_Construction.m to calculate the optimized population-level parameters.
+* Run 3_LongTerm_Forecast_Adult.m and 4_LongTerm_Sensitivity_Child.m independently to view the respective longitudinal simulations and generate network visualizations.
