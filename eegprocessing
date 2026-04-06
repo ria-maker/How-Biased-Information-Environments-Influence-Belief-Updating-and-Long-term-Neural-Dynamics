@@ -4,7 +4,7 @@
 clear; clc; close all;
 
 %% -------- 1. EEGLAB SETUP --------
-eeglab_path = 'C:\Users\ria20\Desktop\BME499_EEGProcessing\eeglab_current';
+eeglab_path = '';
 addpath(genpath(eeglab_path));
 eeglab; close;
 
