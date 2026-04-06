@@ -106,7 +106,7 @@ yticks(1:length(plot_labels)); yticklabels(plot_labels);
 xtickangle(45); title('Neural-Environmental Interaction Matrix');
 
 %% ============================================================
-% 3. LOCAL STATISTICAL HELPERS (MUST BE AT END OF FILE)
+% 3. LOCAL STATISTICAL HELPERS 
 % ============================================================
 function s = p_to_star(p)
     if p < 0.001; s = '***'; 
