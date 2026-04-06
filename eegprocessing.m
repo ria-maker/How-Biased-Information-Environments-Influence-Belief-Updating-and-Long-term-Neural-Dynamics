@@ -4,12 +4,12 @@
 clear; clc; close all;
 
 %% -------- 1. EEGLAB SETUP --------
-eeglab_path = '';
+eeglab_path = ''; % add path
 addpath(genpath(eeglab_path));
 eeglab; close;
 
 %% -------- 2. DATA PATH --------
-data_root = 'C:\Users\ria20\Desktop\BME499_Final\';
+data_root = ''; % add root
 subjects = dir(fullfile(data_root, 'sub-*'));
 nSub = length(subjects);
 assert(nSub > 0, 'No subjects found.');
@@ -76,7 +76,7 @@ for sub = subjects_to_use
     EEG = pop_rmbase(EEG, [-200 0]);
     
     %% =========================================
-    % CORRECT MULTI-EVENT TRIAL LABELING (WITH CELL FIX)
+    % CORRECT MULTI-EVENT TRIAL LABELING 
     % =========================================
     nTrials = EEG.trials;
     moral  = strings(nTrials,1);
@@ -86,12 +86,10 @@ for sub = subjects_to_use
     
     for t = 1:nTrials
         raw_i = EEG.epoch(t).eventurevent;
-        
-        % --- Handle EEGLAB's cell array quirk ---
         if iscell(raw_i)
             num_i = [raw_i{:}]; % Extract numbers from cell
         else
-            num_i = raw_i;      % Already numeric
+            num_i = raw_i;     
         end
         
         if isempty(num_i)
@@ -102,7 +100,7 @@ for sub = subjects_to_use
         i = num_i(1); 
         
         % --------------------------------------
-        % LOOK FORWARD IN TRIAL (NOT BACKWARD)
+        % LOOK FORWARD IN TRIAL 
         % --------------------------------------
         window = EEG.urevent(i : min(i+10, length(EEG.urevent)));
         wtypes = string({window.type});
@@ -159,13 +157,13 @@ for sub = subjects_to_use
     end
     
     %% =========================================
-    % FEATURE EXTRACTION (IMPROVED VERSION)
+    % FEATURE EXTRACTION 
     % =========================================
     % Ensure consistency
     nTrials = EEG.trials;
     nChans  = size(EEG.data,1);
     nTimes  = size(EEG.data,2);
-    times = EEG.times;  % safer alias
+    times = EEG.times;  
     
     %% ---------------- ERP FEATURES ----------------
     P300 = zeros(nTrials,1);
@@ -287,7 +285,7 @@ for sub = subjects_to_use
     disp(TrialTable);
     
     %% =========================================
-    % Figure Plots (Formatted for Publication)
+    % Figure Plots 
     % =========================================
     
     %% ---------------- P300 / N200 PLOTS ----------------
