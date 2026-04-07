@@ -12,7 +12,7 @@ set(groot, 'defaultLineLineWidth', 1.5);
 % 1. LOAD ALL SUBJECT DATA
 % =========================================
 data_root = 'C:\Users\ria20\Desktop\BME499_Final\';
-subjects_to_use = 1:70; 
+subjects_to_use = 1:80; 
 ALL = [];
 
 for s = subjects_to_use
